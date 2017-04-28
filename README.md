@@ -1,3 +1,3 @@
-### Reinstall scripts
+### Reinstall scripts for OpenY Distribution
 
-Reinstall scripts for OpenY.
+For details read instructions [here](https://github.com/ymcatwincities/openy-cibox-vm#reinstall-options).
