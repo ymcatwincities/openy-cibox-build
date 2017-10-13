@@ -41,11 +41,6 @@
   sudo: yes
   file: name=./latest.sql.gz state=absent
   when: pp_environment == "default" or pp_environment == "demo"
-
-- name: Build project from drupal-org.make
-  shell: "cd profiles/contrib/openy && {{ php_env_vars }} drush make drupal-org.make -y --no-core --no-cache"
-  sudo: yes
-  when: trigger_drush_make
   
 - name: Clear drush cache
   sudo: yes
