@@ -2,8 +2,8 @@
 env:
   pre_settings:
     - { name: '$settings["hash_salt"]', status: true, value: 'g1W4KZgWCeWh7Af9_gSb9D9HOiNaBdWPvQD-8x0yWpcgNpTBppaHR5VNGQBGvh2k8P8uWa1V8w'}
-    - { name: '$config_directories["staging"]', status: false, value: 'sites/default/config/staging' }
-    - { name: '$config_directories["sync"]', status: true, value: 'sites/default/config/sync' }
+    - { name: '$config_directories["staging"]', status: false, value: "{{ staging_config_dir }}" }
+    - { name: '$config_directories["sync"]', status: true, value: "{{ sync_config_dir }}" }
     - { name: '$settings["install_profile"]', status: true, value: "{{ installation_profile_name }}" }
     - { name: '$settings["file_public_path"]', status: true, value: 'sites/{{ settings_site_folder }}/files' }
     - { name: '$config["system.file"]["path.temporary"]', status: true, value: '/tmp' }
