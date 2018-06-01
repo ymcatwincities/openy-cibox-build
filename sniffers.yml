@@ -10,6 +10,7 @@
     workspace_root: .
     artifacts_file: commentinfo.md
     webroot: http://localhost
+    webroot_lily: http://lily.localhost
     webroot_upgrade: http://localhost
     webroot_install: http://localhost
     installation_profile_name: openy
@@ -237,9 +238,13 @@
       sudo: yes
       lineinfile: dest={{ workspace_root }}/{{ artifacts_file }} line="| ------------- | ------------- |" create=yes state=present
 
-    - name: Fresh OpenY based on pro
+    - name: Fresh OpenY based on profile - Rose
       sudo: yes
-      lineinfile: dest={{ workspace_root }}/{{ artifacts_file }} line="| Fresh OpenY installation | {{ webroot }} |" create=yes state=present
+      lineinfile: dest={{ workspace_root }}/{{ artifacts_file }} line="| Fresh OpenY installation - Rose theme | {{ webroot }} |" create=yes state=present
+
+    - name: Fresh OpenY based on profile - Lily
+      sudo: yes
+      lineinfile: dest={{ workspace_root }}/{{ artifacts_file }} line="| Fresh OpenY installation - Lily theme | {{ webroot_lily }} |" create=yes state=present
 
     - name: Upgraded(upgrade path) OpenY based on latest release
       sudo: yes
