@@ -17,7 +17,7 @@ env:
     - { name: 'config-set', status: false, arguments: "shield.settings pass {{ http_pass }} -y" }
     - { name: 'config-set', status: false, arguments: "system.site uuid USER_YOUR_UUID_HERE -y" }
     - { name: 'config-set', status: false, arguments: "stage_file_proxy.settings origin {{ origin_site_url }} -y" }
-    - { name: 'config-set', status: true, arguments: "geolocation.settings google_map_api_key 'AIzaSyDIFPdDmDsBOFFZcmavCaAqHa3VNKkXLJc' -y" }
+    - { name: 'config-set', status: true, arguments: "geolocation.settings google_map_api_key 'AIzaSyCzztpo_nVXIGjZdnu3g-lCuQSTnKbfEtM' -y" }
   post_settings:
     - { name: '$config_directories["staging"]', status: true, value: 'sites/default/config/staging' }
     - { name: '$settings["cache"]["bins"]["render"]', status: false, value: 'cache.backend.memory' }
