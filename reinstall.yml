@@ -25,7 +25,7 @@
     tags: [ 'prepare-environment' ]
 
   - include: devops/reinstall/old_source_sql_workflow.yml
-    when: workflow_type == "profile" or workflow_type == "sql" or old_site_db
+    when: (workflow_type == "profile" or workflow_type == "sql") and old_site_db
     tags: [ 'profile-workflow', 'sql-workflow', 'prepare-environment' ]
 
   - include: devops/reinstall/pre_settings.yml
