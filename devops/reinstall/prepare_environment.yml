@@ -28,7 +28,7 @@
 - name: Set writable files dir
   sudo: yes
   file: dest=sites/{{ settings_site_folder }}/files mode=777 state=directory recurse=yes
-  
+
 - name: Set writable private dir
   sudo: yes
   file: dest={{ private_files_dir }} mode=777 state=directory recurse=yes
