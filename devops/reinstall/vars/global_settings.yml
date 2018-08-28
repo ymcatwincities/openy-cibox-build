@@ -38,6 +38,7 @@ run_installation_process: true
 is_windows: false
 ci_server_username: 'jenkins'
 # This variable allows make backup from CI environment before processing.
+make_backup: false
 rebuild_registry: false
 # Local environment that will be used from backup.
 local_backup_environment: 'staging'
