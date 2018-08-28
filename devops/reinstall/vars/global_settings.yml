@@ -48,6 +48,7 @@ backup_pass: givemebackup
 # In many cases this is production dump.
 source_backup_name: latest_release.sql.gz
 old_site_db: false
+reactapps: false
 old_source_backup_name: ymca20160218.sql.gz
 # URL to the source database. Can be overridden by CI server.
 source_database: http://{{ backup_user }}:{{ backup_pass }}@ci.openymca.org/backup/{{ source_backup_name }}
