@@ -10,8 +10,7 @@
   file: name={{ settings_file_path }} state=absent
   sudo: yes
   when: run_installation_process
-  
+
 - name: Installing drupal
   sudo: yes
-  shell: "{{ php_env_vars }} drush -y si {{ installation_profile_name }} install_configure_form.enable_update_status_emails=NULL --db-url=mysql://{{ mysql_user }}:{{ mysql_pass }}@127.0.0.1:/{{ mysql_db }} --account-name={{ drupal_user }} --account-pass={{ drupal_pass }} --uri={{ site_url }}"
-  when: run_installation_process
+  shell: "{{ php_env_vars }} drush -y si {{ installation_profile_name }} {{ drush_si_options }} --db-url=mysql://{{ mysql_user }}:{{ mysql_pass }}@127.0.0.1:/{{ mysql_db }} --account-name={{ drupal_user }} --account-pass={{ drupal_pass }} --uri={{ site_url }}"
