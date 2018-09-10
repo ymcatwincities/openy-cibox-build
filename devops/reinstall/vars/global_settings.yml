@@ -8,10 +8,14 @@ mysql_user: root
 mysql_pass: root
 mysql_db: drupal
 mysql_host: 127.0.0.1
+old_source_db_name: amm_source
 cache_folder: /var/www/cache
 backup_folder: /var/www/backup
 tmp_folder: /tmp
 php_env_vars: 'PHP_OPTIONS="-d sendmail_path=`which true`" APP_ENV=dev' # APP_ENV=dev - this varible will be set at PR_BUILDER from CI shell executor.
+sites_default_dir: sites/default
+public_files_dir: "{{ sites_default_dir }}/files"
+private_files_dir: "{{ sites_default_dir }}/files/private"
 site_url: 'http://drupal.192.168.56.132.xip.io' # No trailing slash!
 # Site url to download assets via stage_file_proxy.
 origin_site_url: 'http://ci.openymca.org/backup/latest_release_files'
@@ -20,14 +24,20 @@ stage_file_proxy: false
 # This variable will be used for variable_get('environment'). Can be overridden by CI server.
 # development = 'default', demo = 'demo', staging = 'staging', production = 'production'.
 pp_environment: 'default'
+drush_si_options: 'install_configure_form.enable_update_status_emails=NULL'
+# If Docker used for sql flow
+docker_sql: true
+docker_sql_db: drupal
+docker_sql_host: 172.18.0.2
+docker_registry: openy.cibox.tools:5000
+docker_prod_image: openy.cibox.tools:5000/dbsandbox
 # This variable allows select type of installation. Can be overridden by CI server.
 # From installation profile = 'profile', from sql dump = 'sql'.
-workflow_type: 'profile'
+workflow_type: 'sql'
 run_installation_process: true
 is_windows: false
 ci_server_username: 'jenkins'
 # This variable allows make backup from CI environment before processing.
-# true, false.
 make_backup: false
 rebuild_registry: false
 # Local environment that will be used from backup.
@@ -38,9 +48,13 @@ backup_pass: givemebackup
 # Source backup database that will be downloaded to build site.
 # In many cases this is production dump.
 source_backup_name: latest_release.sql.gz
+old_site_db: false
+reactapps: false
+old_source_backup_name: ymca20160218.sql.gz
 # URL to the source database. Can be overridden by CI server.
 source_database: http://{{ backup_user }}:{{ backup_pass }}@ci.openymca.org/backup/{{ source_backup_name }}
 settings_site_folder: default
+old_source_db_name_url: http://{{ backup_user }}:{{ backup_pass }}@ymca.ffwua.com/backup/{{ old_source_backup_name }}
 # Path where settings.php should be placed.
 settings_file_path: sites/{{ settings_site_folder }}/settings.php
 settings_default_file_path: sites/default/default.settings.php
@@ -52,4 +66,3 @@ build_environments:
   - { folder: 'upgrade', url: 'upgrade.openy.cibox.tools' }
   - { folder: 'install', url: 'install.drupal.192.168.56.132.xip.io' }
   - { folder: 'install', url: 'install.openy.cibox.tools' }
-  
