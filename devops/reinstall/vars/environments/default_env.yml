@@ -16,7 +16,7 @@ env:
   drush_commands:
     - { name: 'pm-uninstall', status: true, arguments: "update -y" }
     - { name: 'user-password', status: true, arguments: "{{ drupal_user }} --password={{ drupal_pass }}" }
-    - { name: 'cr', status: true, arguments: "" }
+    - { name: 'cr', status: true, arguments: "-l {{ site_url }}" }
     - { name: 'config-set', status: false, arguments: "shield.settings user {{ http_user }} -y" }
     - { name: 'config-set', status: false, arguments: "shield.settings pass {{ http_pass }} -y" }
     - { name: 'config-set', status: false, arguments: "system.site uuid USER_YOUR_UUID_HERE -y" }
