@@ -22,6 +22,7 @@ env:
     - { name: 'config-set', status: true, arguments: "google_tag.settings path_list '' -y" }
     - { name: 'en', status: true, arguments: "openy_lily || true" }
     - { name: 'en', status: true, arguments: "openy_development || true" }
+    - { name: 'en', status: true, arguments: "devel features_ui field_ui views_ui dblog" }
   post_settings:
     - { name: '$config_directories["staging"]', status: true, value: 'sites/default/config/staging' }
     - { name: '$settings["cache"]["bins"]["render"]', status: false, value: 'cache.backend.memory' }
