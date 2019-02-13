@@ -53,3 +53,7 @@ build_environments:
   - { folder: 'install', url: 'install.drupal.192.168.56.132.xip.io' }
   - { folder: 'install', url: 'install.openy.cibox.tools' }
   
+# SOLR
+solr_conf_path: '/opt/solr/solr'
+default_solr_collection_path: "{{ solr_conf_path }}/collection1"
+solr_module_config_path: '/var/www/docroot/modules/contrib/search_api_solr/solr-conf/4.x'
