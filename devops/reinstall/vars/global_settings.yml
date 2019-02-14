@@ -56,4 +56,4 @@ build_environments:
 # SOLR
 solr_conf_path: '/opt/solr/solr'
 default_solr_collection_path: "{{ solr_conf_path }}/collection1"
-solr_module_config_path: '/var/www/docroot/modules/contrib/search_api_solr/solr-conf/4.x'
+solr_module_config_path: 'modules/contrib/search_api_solr/solr-conf/4.x'
