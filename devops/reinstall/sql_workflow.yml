@@ -68,7 +68,7 @@
 
 - name: Download stage file proxy
   sudo: yes
-  shell: "{{ php_env_vars }} drush -y dl stage_file_proxy -l {{ site_url }}"
+  shell: "{{ php_env_vars }} drush -y dl {{ stage_file_proxy_version }} -l {{ site_url }}"
   when: stage_file_proxy
 
 - name: Enable stage file proxy
