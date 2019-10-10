@@ -17,6 +17,7 @@ site_url: 'http://drupal.192.168.56.132.xip.io' # No trailing slash!
 origin_site_url: 'http://ci.openymca.org/backup/latest_release_files'
 origin_site_directory: 'sites/default/files'
 stage_file_proxy: false
+stage_file_proxy_version: "stage_file_proxy-8.x-1.0-beta1"
 # This variable will be used for variable_get('environment'). Can be overridden by CI server.
 # development = 'default', demo = 'demo', staging = 'staging', production = 'production'.
 pp_environment: 'default'
