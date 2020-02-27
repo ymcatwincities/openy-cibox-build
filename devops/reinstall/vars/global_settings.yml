@@ -52,7 +52,15 @@ build_environments:
   - { folder: 'upgrade', url: 'upgrade.drupal.192.168.56.132.xip.io' }
   - { folder: 'upgrade', url: 'upgrade.openy.cibox.tools' }
   - { folder: 'install', url: 'install.drupal.192.168.56.132.xip.io' }
-  - { folder: 'install', url: 'install.openy.cibox.tools' }
+  - { folder: 'openy_carnation_cus', url: 'sandbox-carnation-cus.openy.org' }
+  - { folder: 'openy_carnation_ext', url: 'sandbox-carnation-ext.openy.org' }
+  - { folder: 'openy_carnation_std', url: 'sandbox-carnation-std.openy.org' }
+  - { folder: 'openy_lily_cus', url: 'sandbox-lily-cus.openy.org' }
+  - { folder: 'openy_lily_ext', url: 'sandbox-lily-ext.openy.org' }
+  - { folder: 'openy_lily_std', url: 'sandbox-lily-std.openy.org' }
+  - { folder: 'openy_rose_cus', url: 'sandbox-rose-cus.openy.org' }
+  - { folder: 'openy_rose_ext', url: 'sandbox-rose-ext.openy.org' }
+  - { folder: 'openy_rose_std', url: 'sandbox-rose-std.openy.org' }
   
 # SOLR
 solr_conf_path: '/opt/solr/solr'
