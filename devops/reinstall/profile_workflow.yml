@@ -13,5 +13,5 @@
   
 - name: Installing drupal
   sudo: yes
-  shell: "{{ php_env_vars }} drush -y si {{ installation_profile_name }} openy_terms_of_use.agree_openy_terms=1 install_configure_form.enable_update_status_emails=NULL --db-url=mysql://{{ mysql_user }}:{{ mysql_pass }}@127.0.0.1:/{{ mysql_db }} --account-name={{ drupal_user }} --account-pass={{ drupal_pass }} --uri={{ site_url }}"
+  shell: "{{ php_env_vars }} drush -y si {{ installation_profile_name }} {{ openy_profile_install_settings }} openy_terms_of_use.agree_openy_terms=1 install_configure_form.enable_update_status_emails=NULL --db-url=mysql://{{ mysql_user }}:{{ mysql_pass }}@127.0.0.1:/{{ mysql_db }} --account-name={{ drupal_user }} --account-pass={{ drupal_pass }} --uri={{ site_url }}"
   when: run_installation_process
