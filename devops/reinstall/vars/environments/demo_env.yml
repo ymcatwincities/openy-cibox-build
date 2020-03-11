@@ -10,7 +10,7 @@ env:
   modules:
     - { name: 'devel shield', status: false }
   drush_commands:
-    - { name: 'pm-uninstall', status: true, arguments: "update -y" }
+    - { name: 'pm-uninstall', status: false, arguments: "update -y" }
     - { name: 'user-password', status: true, arguments: "{{ drupal_user }} --password={{ drupal_pass }}" }
     - { name: 'cr', status: true, arguments: "" }
     - { name: 'config-set', status: false, arguments: "shield.settings user {{ http_user }} -y" }
