@@ -14,6 +14,9 @@ env:
     - { name: 'pm-uninstall', status: false, arguments: "update -y" }
     - { name: 'user-password', status: true, arguments: "{{ drupal_user }} --password={{ drupal_pass }}" }
     - { name: 'cr', status: true, arguments: "" }
+    - { name: 'en', status: true, arguments: "openy_gc_demo -y" }
+    - { name: 'mim', status: true, arguments: "--group=virtual_y" }
+    - { name: 'cr', status: true, arguments: "" }
     - { name: 'config-set', status: false, arguments: "shield.settings user {{ http_user }} -y" }
     - { name: 'config-set', status: false, arguments: "shield.settings pass {{ http_pass }} -y" }
     - { name: 'config-set', status: false, arguments: "system.site uuid USER_YOUR_UUID_HERE -y" }
