@@ -9,12 +9,13 @@ env:
     - { name: '$config["system.file"]["path.temporary"]', status: true, value: '/tmp' }
   modules:
     - { name: 'devel shield', status: false }
-    - { name: 'openy_gated_content openy_gc_auth openy_gc_auth_example openy_gc_demo openy_gc_storage', status: true }
+    - { name: 'migrate_tools openy_gated_content openy_gc_auth openy_gc_auth_example openy_gc_demo openy_gc_storage', status: true }
   drush_commands:
     - { name: 'pm-uninstall', status: false, arguments: "update -y" }
     - { name: 'user-password', status: true, arguments: "{{ drupal_user }} --password={{ drupal_pass }}" }
     - { name: 'en', status: true, arguments: "openy_gc_demo -y" }
     - { name: 'cr', status: true, arguments: "" }
+    - { name: 'ms', status: true, arguments: "" }
     - { name: 'mim', status: true, arguments: "--group=virtual_y" }
     - { name: 'cr', status: true, arguments: "" }
     - { name: 'config-set', status: false, arguments: "shield.settings user {{ http_user }} -y" }
