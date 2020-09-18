@@ -65,6 +65,7 @@
 - name: Apply pending entity schema updates
   sudo: yes
   shell: "{{ php_env_vars }} drush -y entup -l {{ site_url }}"
+  ignore_errors: true
 
 - name: Download stage file proxy
   sudo: yes
