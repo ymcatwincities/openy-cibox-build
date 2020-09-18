@@ -5,6 +5,7 @@ env:
     - { name: '$config_directories["staging"]', status: false, value: "{{ staging_config_dir }}" }
     - { name: '$config_directories["sync"]', status: true, value: "{{ sync_config_dir }}" }
     - { name: '$settings["install_profile"]', status: true, value: "{{ installation_profile_name }}" }
+    - { name: '$settings["config_sync_directory"]', status: true, value: "{{ sync_config_dir }}" }
     - { name: '$settings["file_public_path"]', status: true, value: 'sites/{{ settings_site_folder }}/files' }
     - { name: '$config["system.file"]["path.temporary"]', status: true, value: '/tmp' }
   modules:
