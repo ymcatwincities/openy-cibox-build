@@ -16,6 +16,7 @@ env:
     - { name: 'user-password', status: true, arguments: "{{ drupal_user }} --password={{ drupal_pass }}" }
     - { name: 'en', status: true, arguments: "openy_gc_demo -y" }
     - { name: 'cr', status: true, arguments: "" }
+    - { name: 'cache-clear', status: true, arguments: "drush" }
     - { name: 'ms', status: true, arguments: "" }
     - { name: 'mim', status: true, arguments: "--group=openy_demo_fblock" }
     - { name: 'mim', status: true, arguments: "--group=openy_demo_term" }
@@ -26,7 +27,7 @@ env:
     - { name: 'config-set', status: false, arguments: "system.site uuid USER_YOUR_UUID_HERE -y" }
     - { name: 'config-set', status: false, arguments: "stage_file_proxy.settings origin {{ origin_site_url }} -y" }
     - { name: 'config-set', status: true, arguments: "geolocation.settings google_map_api_key 'AIzaSyCzztpo_nVXIGjZdnu3g-lCuQSTnKbfEtM' -y" }
-    - { name: 'config-set', status: true, arguments: "system.site page.front /virtual-y-login" }
+    - { name: 'config-set', status: true, arguments: "system.site page.front /virtual-ymca" }
     - { name: 'config-set', status: true, arguments: "openy_carnation.settings display_search_form 0" }
   post_settings:
     - { name: '$settings["cache"]["bins"]["render"]', status: false, value: 'cache.backend.memory' }
