@@ -16,6 +16,7 @@ env:
     - { name: 'user-password', status: true, arguments: "{{ drupal_user }} --password={{ drupal_pass }}" }
     - { name: 'en', status: true, arguments: "openy_gc_demo -y" }
     - { name: 'cr', status: true, arguments: "" }
+    - { name: 'cache-clear', status: true, arguments: "drush" }
     - { name: 'ms', status: true, arguments: "" }
     - { name: 'mim', status: true, arguments: "--group=openy_demo_fblock" }
     - { name: 'mim', status: true, arguments: "--group=openy_demo_term" }
