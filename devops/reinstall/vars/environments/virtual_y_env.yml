@@ -9,7 +9,7 @@ env:
     - { name: '$settings["file_private_path"]', status: true, value: 'sites/{{ settings_site_folder }}/files/private' }
     - { name: '$config["system.file"]["path.temporary"]', status: true, value: '/tmp' }
   modules:
-    - { name: 'devel shield', status: false }
+    - { name: 'syslog', status: true }
     - { name: 'openy_demo_bfooter migrate_tools openy_gated_content openy_gc_auth openy_gc_auth_example openy_gc_demo openy_gc_storage', status: true }
   drush_commands:
     - { name: 'pm-uninstall', status: false, arguments: "update -y" }
