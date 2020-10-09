@@ -8,7 +8,7 @@ env:
     - { name: '$settings["file_public_path"]', status: true, value: 'sites/{{ settings_site_folder }}/files' }
     - { name: '$config["system.file"]["path.temporary"]', status: true, value: '/tmp' }
   modules:
-    - { name: 'devel shield', status: false }
+    - { name: 'dblog syslog', status: true }
   drush_commands:
     - { name: 'pm-uninstall', status: false, arguments: "update -y" }
     - { name: 'user-password', status: true, arguments: "{{ drupal_user }} --password={{ drupal_pass }}" }
