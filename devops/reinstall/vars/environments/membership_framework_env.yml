@@ -10,9 +10,10 @@ env:
     - { name: '$config["system.file"]["path.temporary"]', status: true, value: '/tmp' }
   modules:
     - { name: 'syslog', status: true }
-    - { name: 'openy_carnation openy_addthis openy_demo_bfooter migrate_tools openy_memberships_demo', status: true }
   drush_commands:
     - { name: 'pm-uninstall', status: false, arguments: "update -y" }
+    - { name: 'then', status: true, arguments: "openy_carnation" }
+    - { name: 'en', status: true, arguments: "openy_addthis openy_demo_bfooter migrate_tools openy_memberships_demo" }
     - { name: 'user-password', status: true, arguments: "{{ drupal_user }} --password={{ drupal_pass }}" }
     - { name: 'cr', status: true, arguments: "" }
     - { name: 'cache-clear', status: true, arguments: "drush" }
