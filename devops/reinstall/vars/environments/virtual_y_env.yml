@@ -21,6 +21,7 @@ env:
     - { name: 'mim', status: true, arguments: "--group=openy_demo_fblock" }
     - { name: 'mim', status: true, arguments: "--group=openy_demo_term" }
     - { name: 'mim', status: true, arguments: "--group=virtual_y" }
+    - { name: 'mim', status: true, arguments: "virtual_y_menu_link_main" }
     - { name: 'cr', status: true, arguments: "" }
     - { name: 'config-set', status: false, arguments: "shield.settings user {{ http_user }} -y" }
     - { name: 'config-set', status: false, arguments: "shield.settings pass {{ http_pass }} -y" }
