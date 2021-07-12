@@ -1,52 +1,52 @@
 ---
 # Commands to prepare environment.
 - name: Set writable cache dir
-  sudo: yes
+  become: yes
   file: path={{ cache_folder }} mode=777 state=directory recurse=yes
 
 - name: Set writable tmp dir
-  sudo: yes
+  become: yes
   file: dest={{ tmp_folder }} mode=777 state=directory recurse=yes
 
 - name: Set writable backup dir
-  sudo: yes
+  become: yes
   file: dest={{ backup_folder }} mode=777 state=directory recurse=yes
 
 - name: Set writable default dir
-  sudo: yes
+  become: yes
   file: dest=sites/{{ settings_site_folder }} mode=777 state=directory recurse=yes
 
 - name: Set writable files dir
-  sudo: yes
+  become: yes
   file: dest=sites/{{ settings_site_folder }}/files mode=777 state=directory recurse=yes
 
 - name: Set writable private dir
-  sudo: yes
+  become: yes
   file: dest=sites/{{ settings_site_folder }}/files/private mode=777 state=directory recurse=yes
 
 - name: Creating staging config directory
-  sudo: yes
+  become: yes
   file:
     path: "{{ staging_config_dir }}"
     state: directory
 
 - name: Creating sync config directory
-  sudo: yes
+  become: yes
   file:
     path: "{{ sync_config_dir }}"
     state: directory
 
 - name: Creating sites.php
-  sudo: yes
+  become: yes
   shell: "cp {{ sites_default_file_path }} sites/sites.php"
 
 - name: Add environments to sites.php
-  sudo: yes
+  become: yes
   lineinfile: dest='sites/sites.php' line='$sites[\"{{ item.url }}\"] = \"{{ item.folder }}\";'
-  with_items: build_environments
+  loop: "{{ build_environments }}"
 
 - name: Start the MySQL service
-  sudo: yes
+  become: yes
   service:
     name: mysql
     state: started
