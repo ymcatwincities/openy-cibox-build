@@ -23,17 +23,19 @@
         - 'database-backup'
         - 'profile-workflow'
         - 'sql-workflow'
+        - 'before-install'
+        - 'after-install'
 
     - include: devops/reinstall/database_backup.yml
       when: make_backup
-      tags: [ 'database-backup' ]
+      tags: [ 'database-backup', 'before-install' ]
 
     - include: devops/reinstall/prepare_environment.yml
-      tags: [ 'prepare-environment' ]
+      tags: [ 'prepare-environment', 'before-install' ]
 
     - include: devops/reinstall/pre_settings.yml
       when: workflow_type == "sql" or not run_installation_process or run_installation_process == 'false'
-      tags: [ 'settings', 'pre-settings', 'sql-workflow' ]
+      tags: [ 'settings', 'pre-settings', 'sql-workflow', 'before-install' ]
 
     - include: devops/reinstall/sql_workflow.yml
       when: workflow_type == "sql"
@@ -44,20 +46,20 @@
       tags: [ 'profile-workflow' ]
 
     - include: devops/reinstall/prepare_environment.yml
-      tags: [ 'prepare-environment' ]
+      tags: [ 'prepare-environment', 'after-install' ]
 
     - include: devops/reinstall/post_settings.yml
-      tags: [ 'settings', 'post-settings' ]
+      tags: [ 'settings', 'post-settings', 'after-install' ]
 
     - include: devops/reinstall/modules_enable.yml
-      tags: [ 'modules-enable' ]
+      tags: [ 'modules-enable', 'after-install' ]
       when: run_installation_process
 
     - include: devops/reinstall/solr.yml
-      tags: [ 'solr-commands' ]
+      tags: [ 'solr-commands', 'after-install' ]
       become: yes
       when: use_solr
 
     - include: devops/reinstall/drush_commands.yml
-      tags: [ 'drush-commands' ]
+      tags: [ 'drush-commands', 'after-install' ]
       when: run_installation_process
