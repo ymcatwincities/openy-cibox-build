@@ -6,6 +6,14 @@
 - name: Creating drupal database
   mysql_db: name={{ mysql_db }} state=present login_user={{ mysql_user }} login_password={{ mysql_pass }}
 
+- name: Getting name for settings (WINDOWS)
+  set_fact: platform_settings_file={{ tmp_folder }}/reinstall_settings.php
+  when: is_windows
+
+- name: Getting name for settings (UNIX)
+  set_fact: platform_settings_file={{ settings_file_path }}
+  when: is_windows == false
+
 #- name: Remove settings.php
 #  file: name={{ settings_file_path }} state=absent
 #  sudo: yes
