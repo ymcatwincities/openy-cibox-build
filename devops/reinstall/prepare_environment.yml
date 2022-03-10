@@ -3,26 +3,32 @@
 - name: Set writable cache dir
   sudo: yes
   file: path={{ cache_folder }} mode=777 state=directory recurse=yes
+  ignore_errors: yes
 
 - name: Set writable tmp dir
   sudo: yes
   file: dest={{ tmp_folder }} mode=777 state=directory recurse=yes
+  ignore_errors: yes
 
 - name: Set writable backup dir
   sudo: yes
   file: dest={{ backup_folder }} mode=777 state=directory recurse=yes
+  ignore_errors: yes
 
 - name: Set writable default dir
   sudo: yes
   file: dest=sites/{{ settings_site_folder }} mode=777 state=directory recurse=yes
+  ignore_errors: yes
 
 - name: Set writable files dir
   sudo: yes
   file: dest=sites/{{ settings_site_folder }}/files mode=777 state=directory recurse=yes
+  ignore_errors: yes
 
 - name: Set writable private dir
   sudo: yes
   file: dest=sites/{{ settings_site_folder }}/files/private mode=777 state=directory recurse=yes
+  ignore_errors: yes
 
 - name: Creating staging config directory
   sudo: yes
