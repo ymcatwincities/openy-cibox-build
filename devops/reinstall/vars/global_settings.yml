@@ -53,6 +53,7 @@ sync_config_dir: 'sites/default/config/sync'
 build_environments:
   - { folder: 'upgrade', url: 'upgrade.drupal.192.168.56.132.xip.io' }
   - { folder: 'upgrade', url: 'upgrade.openy.cibox.tools' }
+  - { folder: 'profile', url: 'profile.openy.cibox.tools' }
   - { folder: 'install', url: 'install.drupal.192.168.56.132.xip.io' }
   - { folder: 'openy_carnation_cus', url: 'sandbox-carnation-cus.openy.org' }
   - { folder: 'openy_carnation_ext', url: 'sandbox-carnation-ext.openy.org' }
