@@ -8,7 +8,7 @@
 - name: Create build collection directory
   file:
     state: directory
-    path: "{{ solr_conf_path }}/{{ mysql_db }}"
+    path: "{{ solr_data_path }}/{{ mysql_db }}"
     mode: 0755
 
 - name: Copy default collection to unique build collection directory

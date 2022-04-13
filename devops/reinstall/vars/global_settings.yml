@@ -70,5 +70,6 @@ openy_profile_install_settings: '-d -vvvv openy_terms_of_use.agree_openy_terms=1
 # SOLR
 use_solr: false
 solr_conf_path: '/opt/solr/solr'
-default_solr_collection_path: "{{ solr_conf_path }}/collection1"
-solr_module_config_path: 'modules/contrib/search_api_solr/solr-conf-templates/6.x'
+solr_data_path: '/var/solr/data'
+default_solr_collection_path: "{{ solr_data_path }}/collection1"
+solr_module_config_path: 'modules/contrib/search_api_solr/solr-conf-templates/8.x'
