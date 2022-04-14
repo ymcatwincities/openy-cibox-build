@@ -5,35 +5,30 @@
     path: "{{ solr_data_path }}/{{ mysql_db }}"
     mode: 0755
 
+- name: Remove config collection directory
+  file:
+    state: absent
+    path: "/tmp/{{ mysql_db }}"
+    mode: 0755
+
 - name: Restart solr service
   service:
     state: restarted
     name: solr
 
+- name: Create new core archive from live config
+  become: yes
+  shell: drush solr-gsc my_solr_server /tmp/{{ mysql_db }}/{{ mysql_db }}.zip 8.11
+
+- name: Unpack new configs from zip
+  become: yes
+  ansible.builtin.shell: 
+    cmd: "unzip {{ mysql_db }}.zip"
+    chdir: /tmp/{{ mysql_db }}/
+
 - name: Create new core from data_driven_schema_configs
   become: yes
-  shell: su - solr -c "/opt/solr/bin/solr create -c {{ mysql_db }} -n data_driven_schema_configs"
-
-- name: Remove boilerplate config dir
-  file:
-    state: absent
-    path: "{{ solr_data_path }}/{{ mysql_db }}/conf"
-    mode: 0755
-
-- name: Copy solr config from search_api_solr to unique build collection directory
-  synchronize:
-    src: "{{ solr_module_config_path }}/"
-    dest: "{{ solr_data_path }}/{{ mysql_db }}/conf"
-  delegate_to: "{{ inventory_hostname }}"
-
-- name: Set ownership for build collection directory
-  file:
-    state: directory
-    path: "{{ solr_data_path }}/{{ mysql_db }}"
-    mode: 0755
-    owner: solr
-    group: solr
-    recurse: yes
+  shell: su - solr -c "/opt/solr/bin/solr create -c {{ mysql_db }} -d /tmp/{{ mysql_db }}/ -n {{ mysql_db }}"
 
 - name: Restart solr service
   service:
