@@ -18,7 +18,7 @@
 
 - name: Create new core archive from live config
   become: yes
-  shell: drush solr-gsc my_solr_server /tmp/{{ mysql_db }}/{{ mysql_db }}.zip 8.11
+  shell: drush solr-gsc solr /tmp/{{ mysql_db }}/{{ mysql_db }}.zip 8.11
 
 - name: Unpack new configs from zip
   become: yes
