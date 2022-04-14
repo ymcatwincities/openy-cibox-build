@@ -16,6 +16,10 @@
     state: restarted
     name: solr
 
+- name: Create new core folder in temp
+  become: yes
+  shell: mkdir -p /tmp/{{ mysql_db }}
+
 - name: Create new core archive from live config
   become: yes
   shell: drush solr-gsc solr /tmp/{{ mysql_db }}/{{ mysql_db }}.zip 8.11
