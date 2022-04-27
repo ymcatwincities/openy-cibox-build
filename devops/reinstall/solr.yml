@@ -12,6 +12,7 @@
     mode: 0755
 
 - name: Restart solr service
+  ignore_errors: yes
   service:
     state: restarted
     name: solr
