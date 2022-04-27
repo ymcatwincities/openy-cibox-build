@@ -35,6 +35,7 @@
   shell: su - solr -c "/opt/solr/bin/solr create -c {{ mysql_db }} -d /tmp/{{ mysql_db }}/ -n {{ mysql_db }}"
 
 - name: Restart solr service
+  ignore_errors: yes
   service:
     state: restarted
     name: solr
