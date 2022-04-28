@@ -33,6 +33,7 @@
 
 - name: Create new core from data_driven_schema_configs
   become: yes
+  ignore_errors: yes
   shell: su - solr -c "/opt/solr/bin/solr create -c {{ mysql_db }} -d /tmp/{{ mysql_db }}/ -n {{ mysql_db }}"
 
 - name: Restart solr service
