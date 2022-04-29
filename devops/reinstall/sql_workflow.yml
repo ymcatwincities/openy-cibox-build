@@ -68,21 +68,25 @@
   ignore_errors: true
 
 - name: Download stage file proxy
+  ignore_errors: yes
   become: yes
   shell: "{{ php_env_vars }} drush -y dl {{ stage_file_proxy_version }} -l {{ site_url }}"
   when: stage_file_proxy
 
 - name: Enable stage file proxy
+  ignore_errors: yes
   become: yes
   shell: "{{ php_env_vars }} drush -y en stage_file_proxy -l {{ site_url }}"
   when: stage_file_proxy
 
 - name: Set configuration for stage file proxy
+  ignore_errors: yes
   become: yes
   shell: "{{ php_env_vars }} drush -y config-set stage_file_proxy.settings origin {{ origin_site_url }} -l {{ site_url }}"
   when: stage_file_proxy
   
 - name: Set folder for stage file proxy
+  ignore_errors: yes
   become: yes
   shell: "{{ php_env_vars }} drush -y config-set stage_file_proxy.settings origin_dir {{ origin_site_directory }} -l {{ site_url }}"
   when: stage_file_proxy
