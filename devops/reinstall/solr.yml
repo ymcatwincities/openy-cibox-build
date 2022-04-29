@@ -22,10 +22,12 @@
   shell: mkdir -p /tmp/{{ mysql_db }}
 
 - name: Create new core archive from live config
+  ignore_errors: yes
   become: yes
   shell: drush solr-gsc solr /tmp/{{ mysql_db }}/{{ mysql_db }}.zip 8.11
 
 - name: Unpack new configs from zip
+  ignore_errors: yes
   become: yes
   ansible.builtin.shell: 
     cmd: "unzip {{ mysql_db }}.zip"
