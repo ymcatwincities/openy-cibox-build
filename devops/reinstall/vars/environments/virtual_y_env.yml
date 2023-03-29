@@ -30,6 +30,7 @@ env:
     - { name: 'config-set', status: true, arguments: "geolocation.settings google_map_api_key 'AIzaSyCzztpo_nVXIGjZdnu3g-lCuQSTnKbfEtM' -y" }
     - { name: 'config-set', status: true, arguments: "system.site page.front /virtual-ymca" }
     - { name: 'config-set', status: true, arguments: "openy_carnation.settings display_search_form 0" }
+    - { name: 'ev', status: true, arguments: "'\Drupal\openy_gc_livechat\GCSocketServer::run();'" }
   post_settings:
     - { name: '$settings["cache"]["bins"]["render"]', status: false, value: 'cache.backend.memory' }
     - { name: '$config["stage_file_proxy.settings"]["origin"]', status: false, value: '{{ origin_site_url }}' }
