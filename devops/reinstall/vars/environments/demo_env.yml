@@ -9,6 +9,7 @@ env:
     - { name: '$config["system.file"]["path.temporary"]', status: true, value: '/tmp' }
   modules:
     - { name: 'dblog syslog search_api_solr_legacy openy_prgf_activity_finder_4 || true', status: true }
+    - { name: 'y_fonts || true', status: true }
   drush_commands:
     - { name: 'pm-uninstall', status: false, arguments: "update -y" }
     - { name: 'user-password', status: true, arguments: "{{ drupal_user }} --password={{ drupal_pass }}" }
