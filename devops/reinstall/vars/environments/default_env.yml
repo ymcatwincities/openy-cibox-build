@@ -24,10 +24,10 @@ env:
     - { name: 'config-set', status: true, arguments: "google_tag.settings path_list '' -y" }
     - { name: 'config-set', status: true, arguments: "search_api.server.solr backend_config.connector_config.host 127.0.0.1 -y" }
     - { name: 'config-set', status: true, arguments: "search_api.server.solr backend_config.connector_config.core {{ mysql_db }} -y" }
-    - { name: 'config-set', status: true, arguments: "search_api.server.solr backend_config.connector_config.workarounds.solr_version 4.5 -y" }
-    - { name: 'en', status: true, arguments: "openy_lily || true" }
-    - { name: 'en', status: true, arguments: "openy_development || true" }
-    - { name: 'en', status: true, arguments: "devel features_ui field_ui views_ui dblog" }
+    - { name: 'config-set', status: true, arguments: "search_api.server.solr backend_config.connector_config.workarounds.solr_version 8 -y" }
+    - { name: 'en', status: false, arguments: "openy_lily || true" }
+    - { name: 'en', status: false, arguments: "openy_development || true" }
+    - { name: 'en', status: true, arguments: "features_ui field_ui views_ui dblog" }
     - { name: 'sapi-r', status: true, arguments: "default -y || true" }
     - { name: 'sapi-i', status: true, arguments: "default -y || true" }
     - { name: 'en', status: true, arguments: "y_fonts || true" }
