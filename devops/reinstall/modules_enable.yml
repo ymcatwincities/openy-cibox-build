@@ -1,5 +1,15 @@
 ---
 # This script contains commands to enable modules that are specified in the configuration.
+- name: Clear cache 1
+  shell: "{{ php_env_vars }} drush -y cr"
+  when: item.status == true
+  ignore_errors: yes
+  
+- name: Clear cache 2
+  shell: "{{ php_env_vars }} drush -y cr"
+  when: item.status == true
+  ignore_errors: yes
+  
 - name: Enable general modules
   shell: "{{ php_env_vars }} drush -y en {{ item.name }} -l {{ site_url }}"
   when: item.status == true
